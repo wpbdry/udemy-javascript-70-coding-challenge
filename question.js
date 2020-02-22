@@ -12,16 +12,22 @@ Question.prototype.questionAndOptions = function() {
     return this.question + '\n' + this.optionsToString()
 }
 
-Question.prototype.ask = function() {
-    return prompt(this.questionAndOptions())
+Question.prototype.ask = function(correct, score) {
+    let promptText = ''
+    if (correct != null) {
+        promptText += correct ? 'Correct!' : 'Incorrect!'
+        promptText += '\n'
+    }
+    promptText += `${score}\n\n${this.questionAndOptions()}`
+    return prompt(promptText)
 }
 
 Question.prototype.checkAnswer = function(userAnswer) {
     return userAnswer == this.answerIndex + 1
 }
 
-Question.prototype.askAndCheckAnswer = function() {
-    const userAnswer = this.ask()
+Question.prototype.askAndCheckAnswer = function(correct, score) {
+    const userAnswer = this.ask(correct, score)
     if (safeWords().indexOf(userAnswer) != -1) return 'exit'
     return this.checkAnswer(userAnswer)
 }

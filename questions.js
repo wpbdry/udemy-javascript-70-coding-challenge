@@ -13,7 +13,7 @@ Questions.prototype.addMultiple = function(data) {
     }
 }
 
-Questions.prototype.askRandom = function() {
+Questions.prototype.askRandom = function(correct, score) {
     const questionIndex = Math.floor(Math.random() * this.questions.length)
-    return this.questions[questionIndex].askAndCheckAnswer()
+    return this.questions[questionIndex].askAndCheckAnswer(correct, score)
 }
