@@ -13,7 +13,9 @@ Questions.prototype.addMultiple = function(data) {
     }
 }
 
-Questions.prototype.askRandom = function(correct, score) {
+Questions.prototype.askRandom = function(prevCorrect, score) {
     const questionIndex = Math.floor(Math.random() * this.questions.length)
-    return this.questions[questionIndex].askAndCheckAnswer(correct, score)
+    const currentTry = new Try(this.questions[questionIndex])
+    currentTry.ask(prevCorrect, score)
+    return currentTry
 }

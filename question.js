@@ -25,9 +25,3 @@ Question.prototype.ask = function(correct, score) {
 Question.prototype.checkAnswer = function(userAnswer) {
     return userAnswer == this.answerIndex + 1
 }
-
-Question.prototype.askAndCheckAnswer = function(correct, score) {
-    const userAnswer = this.ask(correct, score)
-    if (safeWords().indexOf(userAnswer) != -1) return 'exit'
-    return this.checkAnswer(userAnswer)
-}

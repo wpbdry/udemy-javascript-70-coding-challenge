@@ -1,34 +1,23 @@
 function Game() {
-    this.correctTries = 0
-    this.totalTries = 0
-    this.lastTryWasCorrect = null
     this.questions = questions()
+    this.tries = new Tries()
 }
 
 Game.prototype.score = function() {
-    return `${this.correctTries}/${this.totalTries} tries`
+    return `${this.tries.correct()}/${this.tries.total()} tries`
 }
 
 Game.prototype.play = function() {
-    switch (this.questions.askRandom(this.lastTryWasCorrect, this.score())) {
+    const currentTry = this.questions.askRandom(
+        this.tries.total() ? this.tries.last().correct() : null,
+        this.score()
+    )
+    switch (currentTry.command()) {
         case 'exit':
             alert('You exited the game :(')
             break
-        case true:
-            this.lastTryWasCorrect = true
-            this.correctTries += 1
-            this.replay()
-            break
-        case false:
-            this.lastTryWasCorrect = false
-            this.replay()
-            break
         default:
-            alert('500 this should never happen :(')
+            this.tries.add(currentTry)
+            this.play()
     }
-}
-
-Game.prototype.replay = function() {
-    this.totalTries += 1
-    this.play()
 }
