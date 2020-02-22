@@ -22,10 +22,10 @@ function setup() {
         },
         {
             question: `Which of the following are food?
-    a) Dog
-    b) Cat
-    c) Pig
-    d) Cow`,
+        a) Dog
+        b) Cat
+        c) Pig
+        d) Cow`,
             options: ['a and b', 'a and c', 'b and c', 'c and d', 'None of the above'],
             answerIndex: 4
         },

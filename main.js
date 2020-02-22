@@ -7,6 +7,5 @@
 
 
 /* IDEAS
-- display questions in the prompt, rather than in the console
 - display more human-friendly question numbers
 */

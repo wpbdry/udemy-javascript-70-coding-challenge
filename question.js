@@ -5,7 +5,7 @@ function Question(question, options, answerIndex) {
 }
 
 Question.prototype.optionsToString = function() {
-    return this.options.map((option, i) => `${i}: ${option}`).join('\n')
+    return this.options.map((option, i) => `    ${i}: ${option}`).join('\n')
 }
 
 Question.prototype.questionAndOptions = function() {
@@ -13,8 +13,7 @@ Question.prototype.questionAndOptions = function() {
 }
 
 Question.prototype.ask = function() {
-    console.log(this.questionAndOptions())
-    return prompt('Your answer:')
+    return prompt(this.questionAndOptions())
 }
 
 Question.prototype.checkAnswer = function(userAnswer) {
