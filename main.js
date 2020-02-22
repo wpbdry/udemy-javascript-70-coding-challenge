@@ -5,13 +5,17 @@
         this.answerIndex = answerIndex
     }
     
+    Question.prototype.optionsToString = function() {
+        return this.options.map((option, i) => `${i}: ${option}`).join('\n')
+    }
+
+    Question.prototype.questionAndOptions = function() {
+        return this.question + '\n' + this.optionsToString()
+    }
+    
     Question.prototype.ask = function() {
-        console.log(this.question)
-        for (let i in this.options) {
-            console.log(i + ': ' + this.options[i])
-        }
-        const userAnswer = prompt('Your answer:')
-        this.checkAnswer(userAnswer)
+        console.log(this.questionAndOptions())
+        return prompt('Your answer:')
     }
     
     Question.prototype.checkAnswer = function(userAnswer) {
@@ -20,6 +24,10 @@
             return
         }
         console.log('Incorrect!')
+    }
+    
+    Question.prototype.askAndCheckAnswer = function() {
+        this.checkAnswer(this.ask())
     }
     
     let questions = []
@@ -68,7 +76,7 @@
     const askQuestion = function() {
         const questionIndex = Math.floor(Math.random() * questions.length)
         const question = questions[questionIndex]
-        question.ask()
+        question.askAndCheckAnswer()
     }
     
     askQuestion()
@@ -76,7 +84,6 @@
 
 
 /* IDEAS
-- refactor Question.prototype.ask into multiple functions
 - askQuestion should be a method of a new Questions object
 - refactor Question.prototype.checkAnswer into multiple functions
 - display questions in the prompt, rather than in the console
