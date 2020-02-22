@@ -1,4 +1,7 @@
-function setup() {
+function questions() {
+    /***
+     * returns Questions object containing predefined questions.
+     */
     const data = [
         {
             question: 'What is the capital city of South Africa?',
@@ -44,4 +47,16 @@ function setup() {
     const questions = new Questions()
     questions.addMultiple(data)
     return questions
+}
+
+function safeWords() {
+    /***
+     * Returns an array of words which allow the user to exit the game.
+     */
+    return [
+        'exit',
+        'stop',
+        '',
+        null
+    ]
 }

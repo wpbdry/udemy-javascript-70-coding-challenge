@@ -21,5 +21,7 @@ Question.prototype.checkAnswer = function(userAnswer) {
 }
 
 Question.prototype.askAndCheckAnswer = function() {
-    return this.checkAnswer(this.ask())
+    const userAnswer = this.ask()
+    if (safeWords().indexOf(userAnswer) != -1) return 'exit'
+    return this.checkAnswer(userAnswer)
 }
