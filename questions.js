@@ -15,5 +15,5 @@ Questions.prototype.addMultiple = function(data) {
 
 Questions.prototype.askRandom = function() {
     const questionIndex = Math.floor(Math.random() * this.questions.length)
-    this.questions[questionIndex].askAndCheckAnswer()
+    return this.questions[questionIndex].askAndCheckAnswer()
 }

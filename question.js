@@ -18,13 +18,9 @@ Question.prototype.ask = function() {
 }
 
 Question.prototype.checkAnswer = function(userAnswer) {
-    if (userAnswer == this.answerIndex) {
-        console.log('Correct!')
-        return
-    }
-    console.log('Incorrect!')
+    return userAnswer == this.answerIndex
 }
 
 Question.prototype.askAndCheckAnswer = function() {
-    this.checkAnswer(this.ask())
+    return this.checkAnswer(this.ask())
 }
