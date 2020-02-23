@@ -16,6 +16,10 @@ Game.prototype.play = function() {
         case 'exit':
             alert('You exited the game :(')
             break
+        case 'help':
+            alert(`Enter the number corresponding to the correct answer.
+Type 'exit' to stop playing or 'help' to see this prompt.`)
+            this.play()
         default:
             this.tries.add(currentTry)
             this.play()

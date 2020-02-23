@@ -17,6 +17,7 @@ Try.prototype.time = function() {
 
 Try.prototype.command = function() {
     if (safeWords().indexOf(this.userAnswer) != -1) return 'exit'
+    if (this.userAnswer === 'help') return 'help'
     return null
 }
 
