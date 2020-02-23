@@ -18,7 +18,7 @@ Question.prototype.ask = function(correct, score) {
         promptText += correct ? 'Correct!' : 'Incorrect!'
         promptText += '\n'
     }
-    promptText += `${score}\n\n${this.questionAndOptions()}`
+    promptText += `${score} correct.\n\n${this.questionAndOptions()}`
     return prompt(promptText)
 }
 

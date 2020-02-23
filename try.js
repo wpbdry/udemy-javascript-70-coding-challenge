@@ -24,3 +24,15 @@ Try.prototype.command = function() {
 Try.prototype.correct = function() {
     return this.question.checkAnswer(this.userAnswer)
 }
+
+Try.prototype.logToConsole = function(heading) {
+    console.log(heading)
+    const q = this.question
+    console.log(q.question)
+    console.log(`Possible answers:\n${q.optionsToString()}`)
+    console.log(`Correct answer: ${q.answerIndex + 1}: ${q.options[q.answerIndex]}`)
+    console.log(`Your answer: ${this.userAnswer}`)
+    console.log(this.correct() ? 'Correct!' : 'Incorrect!')
+    console.log(`Time: ${this.time() / 1000} seconds`)
+    console.log('')
+}

@@ -1,6 +1,11 @@
 # Udemy JavaScript Video 70 Coding Challenge
 https://phiture.udemy.com/course/the-complete-javascript-course/learn/lecture/5869206
 
+## Foreword
+The purpose of this coding challenge for me was to familiarize myself
+with JavaScript's prototype inheritance, and so I have not used ES6 classes
+even though I have used other ES6+ syntax.
+
 
 ## Instructions
 
